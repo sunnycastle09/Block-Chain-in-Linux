@@ -3,6 +3,7 @@
 #include "sender.hpp"
 #include <cstdlib>
 #include <string>
+class
 
 int main(){
 	botan::socket_s();
