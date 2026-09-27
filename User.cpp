@@ -24,15 +24,16 @@ int main(){
 		std::cout<<"\n\n";
 	}
 	else{
-		std::cout<<"addr list\n1: ";
+		std::cout<<"UTXO list\n"
+		
+		std::cout<<"addr list\n1: "<<std::flush;
 		system("cat addr1");
-		std::cout<<"\n2: ";
+		std::cout<<"\n2: "<<std::flush;
 		system("cat addr2");
-		std::cout<<"\n3: ";
+		std::cout<<"\n3: "<<std::flush;
 		system("cat addr3");
-		std::cout<<"\n4: ";
-		system("cat addr4");
-		std::cout<<"\n5: ";
-		system("cat addr5");	
+		std::cout<<"\n4: "<<std::flush;
+		system("cat addr4");		
+		
 	}
 }
