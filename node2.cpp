@@ -3,18 +3,14 @@
 #include "recv.hpp"
 #include <string>
 
-#int main(){
+int main(){
 	botan::socket_r();
 	std::cout<<"enter ifindex: ";
-	int ifindex;
-	std::cin>>ifindex;
-	std::cout<<"enter node1 mac_addr: ";
-	std::string node1;
-	std::cin>>node1;
-	std::cout<<"enter node2 mac_addr: ";
-	std:string node2;
-	std::cin>>node2;
-	int port=(int)(buffer[14]);
+	int ifindex=6;
+	std::string node1="7af4b31d278e";
+	std::string node2="5eee4440467a";
+	botan::recv();
+	int port=(int)(botan::buffer[14]);
 	if(port==1){
 		botan::framing(ifindex,node1,node2,"8b75d19b");
 	}

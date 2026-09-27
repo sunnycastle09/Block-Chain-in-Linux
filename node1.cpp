@@ -5,6 +5,7 @@
 #include <string>
 
 class UTXO{
+public:
 	std::string adress;
 	float value;
 	std::string UTXO_ID;
@@ -12,6 +13,7 @@ class UTXO{
 	std::string encryto_sig; 	
 };
 class address{
+public:
 	std::string node1_mac;
 	std::string node2_mac;	
 	std::string node3_mac;
@@ -36,6 +38,7 @@ int main(){
 	int ifindex;
 	std::cin>>ifindex;	
 	botan::framing(ifindex,addr.node2_mac,addr.node1_mac,"1");
+	botan::socket_r();
 	int size=botan::recv();
 	std::memcpy(addr.node2_mac.data(),botan::buffer+14,8);
 	std::cout<<addr.node2_mac;
