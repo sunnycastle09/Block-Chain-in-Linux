@@ -58,6 +58,7 @@ namespace botan {
 		long result = syscall(SYS_recvfrom, fd, buffer, sizeof(buffer), 0, &addr_rcv, nullptr);
 		if (result < 0) {
 			perror("recvfrom");
+			exit(1);
 		}
 		return result;
 	}
