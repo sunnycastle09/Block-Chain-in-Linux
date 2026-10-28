@@ -1,6 +1,5 @@
 #include <iostream>
-#include "recv.hpp"
-#include "sender.hpp"
+#include "botan.hpp"
 #include <cstring>
 #include <string>
 
@@ -33,12 +32,11 @@ int main(){
 	std::cin>>addr.node3_mac;
 	std::cout<<"Uesr: ";
 	std::cin>>addr.User_mac;	
-	botan::socket_s();
+	botan::socket();
 	std::cout<<"enter ifindex: ";
 	int ifindex;
 	std::cin>>ifindex;	
 	botan::framing(ifindex,addr.node2_mac,addr.node1_mac,"1");
-	botan::socket_r();
 	int size=botan::recv();
 	std::memcpy(addr.node2_mac.data(),botan::buffer+14,8);
 	std::cout<<addr.node2_mac;
