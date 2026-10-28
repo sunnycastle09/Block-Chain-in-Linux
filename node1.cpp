@@ -28,12 +28,9 @@ public:
 int main(){
 	address addr;
 	std::string line;
-	std::ifstream file("mac_addr",line);
-	addr.node1_mac=std::getline(file,line);
-	addr.node2_mac=std::getline(file,line);
-	addr.node3_mac=std::getline(file,line);
-	addr.User_mac=std::getline(file,line);
-	std::cout<<addr.node1_mac<<"\n"<<addr.node2_mac<<"\n"<<addr.node3_mac<<"\n"<<addr.User_mac;
-
-	
+	std::ifstream file("mac_addr");
+	std::getline(file,addr.node1_mac);
+	std::getline(file,addr.node2_mac);
+	std::getline(file,addr.node3_mac);
+	std::getline(file,addr.User_mac);
 }
