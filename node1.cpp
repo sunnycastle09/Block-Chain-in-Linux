@@ -3,7 +3,7 @@
 #include <cstring>
 #include <string>
 #include <fstream>
-
+//
 class UTXO{
 public:
     std::string adress;
