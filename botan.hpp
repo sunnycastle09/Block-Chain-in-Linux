@@ -49,6 +49,7 @@ namespace botan {
 		std::cout << "\n";
 		if (result < 0) {
 			perror("sendto");
+			exit(1);
 		}
 		return frame.size();
 	}
