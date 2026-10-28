@@ -2,6 +2,7 @@
 #include "botan.hpp"
 #include <cstring>
 #include <string>
+#include <fstream>
 
 class UTXO{
 public:
@@ -25,25 +26,14 @@ public:
 };
 
 int main(){
-    address addr;
-    std::cout<<"Enter Mac address\nnode1: ";
-    std::cin>>addr.node1_mac;
-    std::cout<<"node2: ";
-    std::cin>>addr.node2_mac;
-    std::cout<<"node3: ";
-    std::cin>>addr.node3_mac;
-    std::cout<<"Uesr: ";
-    std::cin>>addr.User_mac;
+	address addr;
+	std::string line;
+	std::ifstream file("mac_addr",line);
+	addr.node1_mac=std::getline(file,line);
+	addr.node2_mac=std::getline(file,line);
+	addr.node3_mac=std::getline(file,line);
+	addr.User_mac=std::getline(file,line);
+	std::cout<<addr.node1_mac<<"\n"<<addr.node2_mac<<"\n"<<addr.node3_mac<<"\n"<<addr.User_mac;
 
-    botan::socket();
-
-    std::cout<<"enter ifindex: ";
-    int ifindex;
-    std::cin>>ifindex;
-
-    botan::framing(ifindex,addr.node2_mac,addr.node1_mac,"1");
-
-    int size=botan::recv();
-    std::memcpy(addr.node2_mac.data(),botan::buffer+14,8);
-    std::cout<<addr.node2_mac;
+	
 }
