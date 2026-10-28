@@ -1,44 +1,27 @@
 #include <iostream>
-#include "botan.hpp"
-#include <cstring>
 #include <string>
+#include "botan.hpp"
 
-class UTXO{
-public:
-	std::string adress;
-	float value;
-	std::string UTXO_ID;
-	std::string origin_sig;
-	std::string encryto_sig; 	
-};
-class address{
-public:
-	std::string node1_mac;
-	std::string node2_mac;	
-	std::string node3_mac;
-	std::string User_mac;
-	std::string node1_addr=std::string(9,'\0');
-	std::string node2_addr=std::string(9,'\0');
-	std::string node3_addr=std::string(9,'\0');
-	std::string User_addr=std::string(9,'\0');
-};
-int main(){
-	address addr;
-	std::cout<<"Enter Mac address\nnode1: ";
-	std::cin>>addr.node1_mac;
-	std::cout<<"node2: ";
-	std::cin>>addr.node2_mac;
-	std::cout<<"node3: ";	
-	std::cin>>addr.node3_mac;
-	std::cout<<"Uesr: ";
-	std::cin>>addr.User_mac;	
-	botan::socket();
-	std::cout<<"enter ifindex: ";
-	int ifindex;
-	std::cin>>ifindex;	
-	botan::framing(ifindex,addr.node2_mac,addr.node1_mac,"1");
-	int size=botan::recv();
-	std::memcpy(addr.node2_mac.data(),botan::buffer+14,8);
-	std::cout<<addr.node2_mac;
-	
+int main() {
+    botan::socket();
+
+    std::string node1 = "7af4b31d278e";
+    std::string node2 = "5eee4440467a";
+
+    // 실제 node1 네임스페이스의 ifindex 확인
+    int ifindex = 4;
+
+    std::cout << "Sending frame to node2...\n";
+
+    int sent = botan::framing(
+        ifindex,
+        node2,  // destination MAC
+        node1,  // source MAC
+        "1"     // payload
+    );
+
+    std::cout << "Sent " << sent << " bytes\n";
+
+    botan::close_socket();
+    return 0;
 }
