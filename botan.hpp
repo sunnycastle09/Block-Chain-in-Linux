@@ -53,8 +53,9 @@ namespace botan {
 		}
 		return frame.size();
 	}
+	sockaddr_ll addr_rcv{};
 	int recv() {
-		long result = syscall(SYS_recvfrom, fd, buffer, sizeof(buffer), 0, nullptr, nullptr);
+		long result = syscall(SYS_recvfrom, fd, buffer, sizeof(buffer), 0, &addr_rcv, nullptr);
 		if (result < 0) {
 			perror("recvfrom");
 		}
