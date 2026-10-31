@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="페이지-1" id="3O0cqjD1yp2zzHyDfJt2">
-    <mxGraphModel dx="1338" dy="1899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1212" dy="1830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -115,17 +115,14 @@
         <mxCell id="YA8MsTxdN1ofVGaqcYYh-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="veth_gw4" vertex="1">
           <mxGeometry height="20" width="60" x="371" as="geometry" />
         </mxCell>
-        <mxCell id="r2Q68Symml1Qycj_yvNC-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;UTXO 형식&lt;/div&gt;&lt;div&gt;(송신자 주소. 값, UTXO ID,개인키서명) (ID는 주소+값 해시값으로)&lt;/div&gt;&lt;div&gt;이 형식으로 클래스 밑 UTXO set만듬&lt;/div&gt;&lt;div&gt;유저가 전달하는 거래형식&lt;/div&gt;&lt;div&gt;input(송신자 주소. 값, UTXO ID,개인키서명)&lt;/div&gt;&lt;div&gt;output(송신자 주소. 값, UTXO ID,개인키서명), 수수료(채굴자 주,값,UTXO ID,개인키서명)&lt;/div&gt;&lt;div&gt;인증은 개인키 서명을 공개키로 푸는것으로 인증&lt;/div&gt;" vertex="1">
+        <mxCell id="r2Q68Symml1Qycj_yvNC-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;UTXO 형식&lt;/div&gt;&lt;div&gt;(수신자 주소. 값, UTXO ID,개인키서명) (ID는 주소+값 해시값으로)&lt;/div&gt;&lt;div&gt;이 형식으로 클래스 밑 UTXO set만듬&lt;/div&gt;&lt;div&gt;유저가 전달하는 거래형식&lt;/div&gt;&lt;div&gt;input(수신자 주소. 값, UTXO ID,개인키서명)&lt;/div&gt;&lt;div&gt;output(수신자 주소. 값, UTXO ID,개인키서명), 수수료(채굴자 주소,값,UTXO ID,개인키서명)&lt;/div&gt;&lt;div&gt;인증은 개인키 서명을 공개키로 푸는것으로 인증&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;수신 대상자 개인키로 UTXO ID를 서명&lt;/div&gt;&lt;div&gt;인증은 수신자가 공개키로 인증&lt;/div&gt;&lt;div&gt;만족시키는 sig출력은 UTXO ID값으로&lt;/div&gt;&lt;div&gt;공개키를 제출 요청할떄는 mac주소로 요청&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;sha256(수신자주소+값) 으로 UTXO ID&lt;/div&gt;" vertex="1">
           <mxGeometry height="150" width="341" x="30" y="-350" as="geometry" />
         </mxCell>
         <mxCell id="r2Q68Symml1Qycj_yvNC-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;1~3은 node1~3&amp;nbsp;&lt;/div&gt;&lt;div&gt;4는 User&lt;/div&gt;addr1~4&lt;div&gt;prv1~4&lt;/div&gt;&lt;div&gt;pub1~4&lt;/div&gt;&lt;div&gt;sig1~4&lt;/div&gt;&lt;div&gt;(prv으로만듬)&lt;/div&gt;" vertex="1">
           <mxGeometry height="40" width="160" x="390" y="-380" as="geometry" />
         </mxCell>
-        <mxCell id="r2Q68Symml1Qycj_yvNC-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="signature.txt로 전자서명 생성" vertex="1">
-          <mxGeometry height="30" width="60" x="570" y="-390" as="geometry" />
-        </mxCell>
-        <mxCell id="p8O1uJKmE_72jLhPOxIm-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;이걸 보면 당장 botan.hpp의 맥주소형식을 unsingned char배열로 바꿔&lt;/font&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;unsigned char[6]으로 다룰 수 있도록&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="100" width="300" x="240" y="121" as="geometry" />
+        <mxCell id="1_UWqsrsxKeX0es06JBE-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 48px;&quot;&gt;일단 나중에 주소는 맥주소 네트워크로 만들기 현재까지 UTXO 클래스까지 구현&lt;/font&gt;" vertex="1">
+          <mxGeometry height="200" width="500" x="240" y="-50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
