@@ -42,7 +42,6 @@ int main(){
 	addr.node1_addr="92934949";
 	std::vector<UTXO> utxo;
 	utxo.push_back(UTXO(addr.node1_addr,100));
-	std::cout<<"address: "<<utxo[0].address<<"\nvalue: "<<utxo[0].value<<"\nUTXO ID: "<<utxo[0].UTXO_ID.substr(0,64);
 }
 
 std::string hash256(std::string str){
