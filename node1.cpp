@@ -3,16 +3,15 @@
 #include <cstring>
 #include <string>
 #include <fstream>
-#include <cstdint>
-#include <stdexcept>
+#include <vector>
 
-char buffer[50];
-int HextoInt(char c);
+char buffer[100];
+int HextoInt(char a,char b);
 class UTXO{
 public:
     std::string address;
     int value;
-    char UTXO_ID[32];
+    char UTXO_ID;
     std::string encrypto_sig;
 	UTXO(std::string addr,int v){
 		address=addr;
@@ -20,11 +19,8 @@ public:
 		std::string cmd="echo \""+address+std::to_string(value)+"\" | openssl dgst -sha256";
 		FILE * f=popen(cmd.c_str(),"r");
 		fgets(buffer,sizeof(buffer),f);
-		char temp[64];
-		std::memcpy(temp,buffer+17,64);
-		for(int i=0;i<32;i++){
-			UTXO_ID[i]=(char)(HextoInt(temp[i*2],temp[(i*2)+1]));
-		}
+		pclose(f);
+		std::memcpy(UTXO_ID.data(),buffer+17,64);
 	}
 };
 
@@ -51,7 +47,9 @@ int main(){
 	addr.node1_addr="92934949";
 	std::vector<UTXO> utxo;
 	utxo.push_back(UTXO(addr.node1_addr,100));
-	std::cout<<"address: "<<utxo[0].address<<"\nvalue: "<<utxo[0].value<<"\nUTXO ID: "<<utxo[0].UTXO_ID;
+	std::cout<<"address: "<<utxo[0].address<<"\nvalue: "<<utxo[0].value<<"\nUTXO ID: ";
+	for(int i=0;i<32;i++)
+		std::cout<<utxo[0].UTXO_ID[i];
 }
 int HextoInt(char a,char b) {
 	std::string tmp;
