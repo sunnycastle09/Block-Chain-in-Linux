@@ -4,23 +4,24 @@
 #include <string>
 #include <fstream>
 #include <cstring>
-#include <array>
 
 char buffer[50];
 int HextoInt(char c);
 class UTXO{
 public:
     std::string address;
-    float value;
+    int value;
     char UTXO_ID[32];
     std::string encrypto_sig;
-	UTXO(std::string addr,float v){
-		FILE * f=popen("echo "+address+std::to_string(value)+" | openssl dgst -sha256");
+	UTXO(std::string addr,int v){
+		address=addr;
+		value=v;
+		std::string cmd="echo \""+address+std::to_string(value)+"\" | openssl dgst -sha256"
 		fgets(buffer,sizeof(buffer),f);
 		char temp[64];
-		std::memcpy(temp.data(),buffer+17,64);
+		std::memcpy(temp,buffer+17,64);
 		for(int i=0;i<32;i++){
-			UTXO_ID[i]=reinterpret_cast<char>(HextoInt(temp[i*2],temp[(i*2)+1]));
+			UTXO_ID[i]=(char)(HextoInt(temp[i*2],temp[(i*2)+1]));
 		}
 	}
 };
@@ -45,11 +46,13 @@ int main(){
 	std::getline(file,addr.node2_mac);
 	std::getline(file,addr.node3_mac);
 	std::getline(file,addr.User_mac);
-	
+	std::vector<UTXO *> utxo;
+	utxo.push_back(new UTXO(node1_addr,100));
+	std::cout<<"address: "<<utxo[0].address<<"\nvalue: "<<utxo[0].value<<"\nUTXO ID: "<<utxo[0].UTXO_ID;
 }
 int HextoInt(char a,char b) {
 	std::string tmp;
 	tmp+=a;
 	tmp+=b;
-	return std::stoi(tmp);
+	return std::stoi(tmp,nullptr,16);
 }
