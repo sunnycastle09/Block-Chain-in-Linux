@@ -4,15 +4,15 @@
 #include "botan.hpp"
 class address{
 public:
-    std::string node1_mac=std::string(13,'\0');
-    std::string node2_mac=std::string(13,'\0');
-    std::string node3_mac=std::string(13,'\0');
-    std::string User_mac=std::string(13,'\0');
-    std::string DNS_mac=std::string(13,'\0');
-    std::string node1_addr=std::string(9,'\0');
-    std::string node2_addr=std::string(9,'\0');
-    std::string node3_addr=std::string(9,'\0');
-    std::string User_addr=std::string(9,'\0');
+    std::string node1_mac=std::string(12,'\0');
+    std::string node2_mac=std::string(12,'\0');
+    std::string node3_mac=std::string(12,'\0');
+    std::string User_mac=std::string(12,'\0');
+    std::string DNS_mac=std::string(12,'\0');
+    std::string node1_addr=std::string(8,'\0');
+    std::string node2_addr=std::string(8,'\0');
+    std::string node3_addr=std::string(8,'\0');
+    std::string User_addr=std::string(8,'\0');
 };
 
 int main(){
