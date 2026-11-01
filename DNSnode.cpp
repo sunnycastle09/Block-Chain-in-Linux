@@ -31,6 +31,8 @@ int main(){
     std::getline(file, addr.node2_addr);
     std::getline(file, addr.node3_addr);
     std::getline(file, addr.User_addr);
+    botan::socket();
     std::string payload="1 "+addr.node1_mac+addr.node2_mac+addr.node3_mac+addr.User_mac+addr.node1_addr+addr.node2_addr+addr.node3_addr+addr.User_addr;
     botan::framing(if_idx,addr.node1_mac,addr.DNS_mac,payload);
+    botan::close_socket();
 }
